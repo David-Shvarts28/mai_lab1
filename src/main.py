@@ -1,20 +1,19 @@
-from src.power import power_function
-from src.constants import SAMPLE_CONSTANT
-
+from . import calc
 
 def main() -> None:
     """
-    Обязательнная составляющая программ, которые сдаются. Является точкой входа в приложение
-    :return: Данная функция ничего не возвращает
+        Является точкой входа в приложение
+        :return: Данная функция ничего не возвращает
     """
-
-    target, degree = map(int, input("Введите два числа разделенные пробелом: ").split(" "))
-
-    result = power_function(target=target, power=degree)
-
-    print(result)
-
-    print(SAMPLE_CONSTANT)
+    expr = input("Введите выражение: ")
+    try:
+        print("Результат:", calc.shunting_yard(expr))
+    except calc.CalcError as e:
+        print(e)
+    except ZeroDivisionError:
+        print("Ошибка: Деление на ноль!")
+    except Exception as e:
+        print(f"Непредвиденная ошибка: {e}")
 
 if __name__ == "__main__":
     main()
