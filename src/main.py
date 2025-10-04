@@ -1,4 +1,4 @@
-from src import calc
+import calc  # type: ignore
 
 def main() -> None:
     """
