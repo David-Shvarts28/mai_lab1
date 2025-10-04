@@ -1,4 +1,4 @@
-from . import calc
+from src import calc
 
 def main() -> None:
     """
